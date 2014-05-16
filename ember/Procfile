@@ -1,1 +1,1 @@
-web: ember server
+web: ember serve --environment production --port $PORT
