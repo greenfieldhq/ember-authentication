@@ -1,1 +1,1 @@
-web: ember server --environment production --proxy http://infinite-atoll-8150.herokuapp.com/ --port 80
+web: ember server --proxy http://infinite-atoll-8150.herokuapp.com/ --port 80
