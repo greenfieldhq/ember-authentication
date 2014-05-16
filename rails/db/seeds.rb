@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+Speaker.delete_all
+Speech.delete_all
 
 bugs = Speaker.create(name: 'Bugs Bunny')
 wile = Speaker.create(name: 'Wile E. Coyote')
