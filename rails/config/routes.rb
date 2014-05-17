@@ -1,4 +1,7 @@
 GreenfieldBase::Application.routes.draw do
+
+  #resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,5 +59,9 @@ GreenfieldBase::Application.routes.draw do
   namespace :api do
     resources :speakers
     resources :speeches
+    resources :users, except: [:new, :edit, :destroy]
+    resources :api_keys
+    post 'session' => 'session#create'
   end
+
 end

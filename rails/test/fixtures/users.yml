@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+ryan:
+  name: Ryan Tremaine
+  username: rtremaine
+  email: ryan@greenfieldhq.com
+  password_digest: "$2a$10$wJTPdvpGgzDvkXChrcPyqOQrFFawzGu89B1rZze/lVIcJKWiNeAqS"
+
+mike:
+  name: Mike Munroe
+  username: mmunroe
+  email: mike@greenfieldhq.com
+  password_digest: "$2a$10$wJTPdvpGgzDvkXChrcPyqOQrFFawzGu89B1rZze/lVIcJKWiNeAqS"

@@ -1,0 +1,4 @@
+git subtree push --prefix ember heroku master
+git subtree push --prefix rails heroku-rails master
+heroku run rake db:seed --app infinite-atoll-8150
+heroku logs --app serene-bastion-4685
