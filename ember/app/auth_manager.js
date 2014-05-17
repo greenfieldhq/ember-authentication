@@ -1,6 +1,5 @@
 import ApiKey from './models/api-key';
 import App from './app';
-//import Foo from './routes/sessions/new'
 
 export default Ember.Object.extend({
   // Load the current user if the cookies exist and is valid
@@ -35,9 +34,6 @@ export default Ember.Object.extend({
 
   // Log out the user
   reset: function() {
-    //App.__container__.lookup("route:application").transitionTo('sessions.new');
-    //debugger;
-    //Foo.transitionTo('sessions.new');
     Ember.run.sync();
     Ember.run.next(this, function(){
       this.set('apiKey', null);

@@ -1,36 +1,37 @@
 <h2>Register</h2>
 
-<form {{action "createUser" on="submit"}}>
-  <div {{bindAttr class=":controls errors.name:error"}}>
+<form {{action "createUser" on="submit"}} role="form">
+
+  <div {{bind-attr class=":controls errors.name:error"}} class="form-group">
     <label>Full Name</label>
-    {{input type="text" value=name placeholder="Full Name"}}
+    {{input type="text" value=name placeholder="Full Name" class="form-control"}}
     <small class="below">{{errors.name}}</small>
   </div>
 
-  <div {{bindAttr class=":controls errors.email:error"}}>
+  <div {{bind-attr class=":controls errors.email:error"}} class="form-group">
     <label>Email Address</label>
-    {{input type="email" value=email placeholder="Email Address"}}
+    {{input type="email" value=email placeholder="Email Address" class="form-control"}}
     <small class="below">{{errors.email}}</small>
   </div>
 
-  <div {{bindAttr class=":controls errors.username:error"}}>
+  <div {{bind-attr class=":controls errors.username:error"}} class="form-group">
     <label>Username</label>
-    {{input type="text" value=username placeholder="Username"}}
+    {{input type="text" value=username placeholder="Username" class="form-control"}}
     <small class="below">{{errors.username}}</small>
   </div>
 
-  <div {{bindAttr class=":controls errors.password:error"}}>
+  <div {{bind-attr class=":controls errors.password:error"}} class="form-group">
     <label>Password</label>
-    {{input type="password" value=password placeholder="Password"}}
+    {{input type="password" value=password placeholder="Password" class="form-control"}}
     <small class="below">{{errors.password}}</small>
   </div>
 
-  <div {{bindAttr class=":controls errors.password_confirmation:error"}}>
+  <div {{bind-attr class=":controls errors.password_confirmation:error"}} class="form-group">
     <label>Confirm Password</label>
-    {{input type="password" value=password_confirmation placeholder="Confirm Password"}}
+    {{input type="password" value=password_confirmation placeholder="Confirm Password" class="form-control"}}
     <small class="below">{{errors.password_confirmation}}</small>
   </div>
 
   <br>
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
