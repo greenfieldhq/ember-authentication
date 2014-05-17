@@ -36,7 +36,7 @@ export default Ember.Object.extend({
   // Log out the user
   reset: function() {
     //App.__container__.lookup("route:application").transitionTo('sessions.new');
-    debugger;
+    //debugger;
     //Foo.transitionTo('sessions.new');
     Ember.run.sync();
     Ember.run.next(this, function(){

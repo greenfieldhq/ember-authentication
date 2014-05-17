@@ -9,7 +9,7 @@ export default Ember.Route.extend({
   events: {
     logout: function() {
       App.AuthManager.reset();
-      this.transitionTo('index');
+      this.transitionTo('sessions.new');
     }
   }
 });
