@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_filter :ensure_authenticated_user, only: [:index]
+  before_filter :ensure_authenticated_user, only: [:index, :show]
 
   # Returns list of users. This requires authorization
   def index

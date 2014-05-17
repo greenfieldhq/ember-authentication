@@ -10,7 +10,6 @@ Router.map(function() {
   this.resource('speeches', function() {
     this.route('show', {path: ':speech_id'});
   });
-
   this.resource('sessions', function() {
     this.route('new');
   });
