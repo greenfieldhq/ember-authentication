@@ -19,14 +19,14 @@
         <li>{{link-to 'About' 'about'}}</li>
         <li>{{link-to 'Speakers' 'speakers'}}</li>
         <li>{{link-to 'Speeches' 'speeches'}}</li>
-        <li>{{#linkTo 'top_secret'}}Top Secret{{/linkTo}}</li>
+        <li>{{link-to 'Top Secret' 'top_secret'}}</li>
 
         {{#if isAuthenticated}}
           <li><a href="#">{{currentUser.email}}</a></li>
           <li><a href="#" {{action 'logout'}}>Logout</a></li>
         {{else}}
-          <li>{{#linkTo 'users.new'}}Register{{/linkTo}}</li>
-          <li>{{#linkTo 'sessions.new'}}Login{{/linkTo}}</li>
+          <li>{{link-to 'Register' 'users.new'}}</li>
+          <li>{{link-to 'Login' 'sessions.new'}}</li>
         {{/if}}
       </ul>
     </div><!-- /.navbar-collapse -->
