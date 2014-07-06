@@ -25,6 +25,9 @@
     "ok",
     "strictEqual",
     "module",
+    "moduleFor",
+    "moduleForComponent",
+    "moduleForModel",
     "process",
     "expect",
     "visit",
@@ -39,7 +42,7 @@
     "isolatedContainer",
     "startApp",
     "andThen",
-    "currentUrl",
+    "currentURL",
     "currentPath",
     "currentRouteName",
     "Pretender"

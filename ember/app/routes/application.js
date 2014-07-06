@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import AuthManager from '../auth_manager';
 import App from '../app';
 

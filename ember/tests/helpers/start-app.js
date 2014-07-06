@@ -1,6 +1,7 @@
 /* global require */
-var Router = require('greenfield-base/router')['default'];
-var Application = require('greenfield-base/app')['default'];
+
+var Application = require('greenfield/app')['default'];
+var Router = require('greenfield/router')['default'];
 
 export default function startApp(attrs) {
   var App;
@@ -12,10 +13,11 @@ export default function startApp(attrs) {
     LOG_VIEW_LOOKUPS: false
   }, attrs); // but you can override;
 
+  Router.reopen({
+    location: 'none'
+  });
+
   Ember.run(function(){
-    Router.reopen({
-      location: 'none'
-    });
     App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();

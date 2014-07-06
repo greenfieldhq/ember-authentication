@@ -1,4 +1,4 @@
-import startApp from 'greenfield-base/tests/helpers/start-app';
+import startApp from 'greenfield/tests/helpers/start-app';
 
 var App;
 
@@ -11,9 +11,9 @@ module('Integration - Landing Page', {
   }
 });
 
-test('Should welcome me to greenfield', function() {
+test('Should show user the landing page', function() {
   visit('/').then(function() {
-    equal(find('h2#title').text(), 'Welcome to greenfield');
+    equal(find('h2#title').text(), 'Hello World! Welcome to greenfield!');
   });
 });
 

@@ -1,1 +1,0 @@
-web: ember server --proxy http://infinite-atoll-8150.herokuapp.com/ --port $PORT

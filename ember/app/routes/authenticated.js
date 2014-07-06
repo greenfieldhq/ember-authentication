@@ -1,7 +1,8 @@
+import Ember from 'ember';
 import App from '../app';
 
 export default Ember.Route.extend({
-  beforeModel: function(transition) {
+  enter: function(transition) {
     if (!App.AuthManager.isAuthenticated()) {
       this.redirectToLogin(transition);
     }

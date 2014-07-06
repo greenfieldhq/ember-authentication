@@ -1,5 +1,7 @@
+import Ember from 'ember';
 import ApiKey from './models/api-key';
 import App from './app';
+import DS from 'ember-data';
 
 export default Ember.Object.extend({
   // Load the current user if the cookies exist and is valid

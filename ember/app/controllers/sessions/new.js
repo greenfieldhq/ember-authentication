@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import App from '../../app';
 
 export default Ember.ObjectController.extend({

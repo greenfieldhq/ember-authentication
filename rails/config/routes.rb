@@ -1,7 +1,4 @@
-GreenfieldBase::Application.routes.draw do
-
-  #resources :users
-
+Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -42,7 +39,7 @@ GreenfieldBase::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
@@ -57,8 +54,7 @@ GreenfieldBase::Application.routes.draw do
   #     resources :products
   #   end
   namespace :api do
-    resources :speakers
-    resources :speeches
+    resources :cars
     resources :users, except: [:new, :edit, :destroy]
     resources :api_keys
     post 'session' => 'session#create'

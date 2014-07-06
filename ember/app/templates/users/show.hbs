@@ -1,0 +1,8 @@
+<h4>{{name}}</h4>
+<ul>
+{{#each cars}}
+  <li>
+    {{link-to name 'cars.show' this}}
+  </li>
+{{/each}}
+</ul>

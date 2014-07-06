@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Speaker.delete_all
-Speech.delete_all
-User.delete_all
-ApiKey.delete_all
-
 ryan = User.create(name: 'Ryan Tremaine',
                   username: 'rtremaine',
                   email: 'ryan@greenfieldhq.com',
@@ -23,25 +18,15 @@ mike = User.create(name: 'Mike Munroe',
                   password: 'mm',
                   password_confirmation: 'mm')
 
-ryan.api_keys << ApiKey.create(access_token: SecureRandom.hex,
-                                scope: 'session',
-                                expired_at: 4.hours.from_now)
-ryan.api_keys << ApiKey.create(access_token: SecureRandom.hex,
-                                scope: 'api',
-                                expired_at: 4.hours.from_now)
+ryan.cars << Car.create(make: 'BMW', model: 'M3', year: 2011, color: 'white') 
+ryan.cars << Car.create(make: 'BMW', model: 'M3', year: 2009, color: 'black') 
+ryan.cars << Car.create(make: 'BMW', model: 'M3', year: 2002, color: 'white') 
+ryan.cars << Car.create(make: 'Porsche', model: '911', year: 2007, color: 'blue') 
+ryan.cars << Car.create(make: 'Audi', model: 'S4', year: 2008, color: 'black') 
 
-mike.api_keys << ApiKey.create(access_token: SecureRandom.hex,
-                                scope: 'session',
-                                expired_at: 4.hours.from_now)
-mike.api_keys << ApiKey.create(access_token: SecureRandom.hex,
-                                scope: 'api',
-                                expired_at: 4.hours.from_now)
 
-bugs = Speaker.create(name: 'Bugs Bunny')
-wile = Speaker.create(name: 'Wile E. Coyote')
-yosemite = Speaker.create(name: 'Yosemite Sam')
+ryan.api_keys << ApiKey.create(access_token: SecureRandom.hex, scope: 'session', expired_at: 4.hours.from_now)
+ryan.api_keys << ApiKey.create(access_token: SecureRandom.hex, scope: 'api', expired_at: 4.hours.from_now)
 
-bugs.speeches << Speech.new(name: 'Carrots, the other white meat.')
-wile.speeches << Speech.new(name: 'Always look down!')
-yosemite.speeches << Speech.new(name: 'Mudflaps and bad tattoos.')
-
+mike.api_keys << ApiKey.create(access_token: SecureRandom.hex, scope: 'session', expired_at: 4.hours.from_now)
+mike.api_keys << ApiKey.create(access_token: SecureRandom.hex, scope: 'api', expired_at: 4.hours.from_now)

@@ -1,4 +1,4 @@
-import startApp from 'greenfield-base/tests/helpers/start-app';
+import startApp from 'greenfield/tests/helpers/start-app';
 
 var App;
 
