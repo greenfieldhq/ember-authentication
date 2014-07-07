@@ -9,7 +9,7 @@ export default Ember.ObjectController.extend({
       var user = this.get('model');
 
       /* jshint unused:false */
-      $.post('api/users', { user: data }, function(results) {
+      Ember.$.post('api/users', { user: data }, function(results) {
         App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
         router.transitionTo('index');
       }).fail(function(jqxhr, textStatus, error ) {

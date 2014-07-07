@@ -11,7 +11,7 @@ export default Ember.ObjectController.extend({
       var data = this.getProperties('username_or_email', 'password');
       var attemptedTrans = this.get('attemptedTransition');
 
-      $.post('api/session', data, function(results) {
+      Ember.$.post('api/session', data, function(results) {
         App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
         //router.transitionTo('index');
         if (attemptedTrans) {

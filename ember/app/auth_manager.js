@@ -7,8 +7,8 @@ export default Ember.Object.extend({
   // Load the current user if the cookies exist and is valid
   init: function() {
     this._super();
-    var accessToken = $.cookie('access_token');
-    var authUserId  = $.cookie('auth_user');
+    var accessToken = Ember.$.cookie('access_token');
+    var authUserId  = Ember.$.cookie('auth_user');
     if (!Ember.isEmpty(accessToken) && !Ember.isEmpty(authUserId)) {
       this.authenticate(accessToken, authUserId);
     }
@@ -22,7 +22,7 @@ export default Ember.Object.extend({
   // Authenticate the user. Once they are authenticated, set the access token to be submitted with all
   // future AJAX requests to the server.
   authenticate: function(accessToken, userId) {
-    $.ajaxSetup({
+    Ember.$.ajaxSetup({
       headers: { 'Authorization': 'Bearer ' + accessToken }
     });
     var $this = this;
@@ -39,7 +39,7 @@ export default Ember.Object.extend({
     Ember.run.sync();
     Ember.run.next(this, function(){
       this.set('apiKey', null);
-      $.ajaxSetup({
+      Ember.$.ajaxSetup({
         headers: { 'Authorization': 'Bearer none' }
       });
     });
@@ -49,11 +49,11 @@ export default Ember.Object.extend({
   // the user when the browser is refreshed.
   apiKeyObserver: function() {
     if (Ember.isEmpty(this.get('apiKey'))) {
-      $.removeCookie('access_token');
-      $.removeCookie('auth_user');
+      Ember.$.removeCookie('access_token');
+      Ember.$.removeCookie('auth_user');
     } else {
-      $.cookie('access_token', this.get('apiKey.accessToken'));
-      $.cookie('auth_user', this.get('apiKey.user.id'));
+      Ember.$.cookie('access_token', this.get('apiKey.accessToken'));
+      Ember.$.cookie('auth_user', this.get('apiKey.user.id'));
     }
   }.observes('apiKey')
 });

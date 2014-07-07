@@ -24,4 +24,5 @@ app.import({development:'vendor/FakeXMLHttpRequest/fake_xml_http_request.js'});
 app.import({development:'vendor/pretender/pretender.js'});
 
 app.import('vendor/jquery.cookie/jquery.cookie.js');
+app.import('vendor/bootstrap/dist/js/bootstrap.min.js');
 //app.import('vendor/torii/dist/torii.amd.js');
