@@ -4,6 +4,8 @@ import App from './app';
 import DS from 'ember-data';
 
 export default Ember.Object.extend({
+  rememberMe: false,
+
   // Load the current user if the cookies exist and is valid
   init: function() {
     this._super();
@@ -21,7 +23,7 @@ export default Ember.Object.extend({
 
   // Authenticate the user. Once they are authenticated, set the access token to be submitted with all
   // future AJAX requests to the server.
-  authenticate: function(accessToken, userId) {
+  authenticate: function(accessToken, userId, rememberMe) {
     Ember.$.ajaxSetup({
       headers: { 'Authorization': 'Bearer ' + accessToken }
     });
@@ -32,6 +34,8 @@ export default Ember.Object.extend({
         user: user
       }));
     });
+    // set the rememberMe flag which determines if an authentication cookie is used
+    this.set('rememberMe', rememberMe);
   },
 
   // Log out the user
@@ -52,8 +56,11 @@ export default Ember.Object.extend({
       Ember.$.removeCookie('access_token');
       Ember.$.removeCookie('auth_user');
     } else {
-      Ember.$.cookie('access_token', this.get('apiKey.accessToken'));
-      Ember.$.cookie('auth_user', this.get('apiKey.user.id'));
+      // Set auth cookie if rememberMe is true
+      if (this.get('rememberMe')) {
+        Ember.$.cookie('access_token', this.get('apiKey.accessToken'), { expires: 30});
+        Ember.$.cookie('auth_user', this.get('apiKey.user.id'), { expires: 30});
+      }
     }
   }.observes('apiKey')
 });
