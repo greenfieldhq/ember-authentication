@@ -13,7 +13,7 @@ module('Integration - Landing Page', {
 
 test('Should show user the landing page', function() {
   visit('/').then(function() {
-    equal(find('h2#title').text(), 'Hello World! Welcome to greenfield!');
+    equal(find('p#welcome').text(), 'Hello World! Welcome to greenfield!');
   });
 });
 

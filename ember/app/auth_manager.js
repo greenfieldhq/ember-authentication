@@ -24,18 +24,24 @@ export default Ember.Object.extend({
   // Authenticate the user. Once they are authenticated, set the access token to be submitted with all
   // future AJAX requests to the server.
   authenticate: function(accessToken, userId, rememberMe) {
-    Ember.$.ajaxSetup({
-      headers: { 'Authorization': 'Bearer ' + accessToken }
+    var klass = this;
+    Ember.run(function() {
+      Ember.$.ajaxSetup({
+        headers: { 'Authorization': 'Bearer ' + accessToken }
+      });
+      var $this = klass;
+      $this.get('store').find('user', userId).then(function(user) {
+        $this.set('apiKey', ApiKey.create({
+          accessToken: accessToken,
+          user: user
+        }));
+      }, function(reason) {
+        // on rejection
+        console.error(reason);
+      });
+      // set the rememberMe flag which determines if an authentication cookie is used
+      $this.set('rememberMe', rememberMe);
     });
-    var $this = this;
-    this.get('store').find('user', userId).then(function(user) {
-      $this.set('apiKey', ApiKey.create({
-        accessToken: accessToken,
-        user: user
-      }));
-    });
-    // set the rememberMe flag which determines if an authentication cookie is used
-    this.set('rememberMe', rememberMe);
   },
 
   // Log out the user

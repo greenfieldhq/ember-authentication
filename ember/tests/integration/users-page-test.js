@@ -8,15 +8,12 @@ module('Integration - User Page', {
     var users = [
       {
         id: 1,
-        name: 'Bugs Bunny'
+        name: 'Ryan Tremaine',
+        
       },
       {
         id: 2,
-        name: 'Wile E. Coyote'
-      },
-      {
-        id: 3,
-        name: 'Yosemite Sam'
+        name: 'Mike Munroe'
       }
     ];
 
@@ -31,8 +28,11 @@ module('Integration - User Page', {
             return user;
           }
         });
-
         return [200, {"Content-Type": "application/json"}, JSON.stringify({user: user})];
+      });
+
+      this.post('/api/session', function(request) {
+        return [201, {"Content-Type": "application/json"}, JSON.stringify({api_key: {id: 7, access_token: 'b8de2c1d0b02a9e02bdcd9037a03a744', user_id: 1}})];
       });
     });
 
@@ -44,6 +44,7 @@ module('Integration - User Page', {
 });
 
 test('Should allow navigation to the users page from the landing page', function() {
+  login('rtremaine', 'rt');
   visit('/').then(function() {
     click('a:contains("Users")').then(function() {
       equal(find('h3').text(), 'Users');
@@ -52,23 +53,34 @@ test('Should allow navigation to the users page from the landing page', function
 });
 
 test('Should list all users', function() {
+  login('rtremaine', 'rt');
   visit('/users').then(function() {
-    equal(find('a:contains("Bugs Bunny")').length, 1);
-    equal(find('a:contains("Wile E. Coyote")').length, 1);
-    equal(find('a:contains("Yosemite Sam")').length, 1);
+    equal(find('a:contains("Ryan Tremaine")').length, 1);
+    equal(find('a:contains("Mike Munroe")').length, 1);
   });
 });
 
 test('Should be able to navigate to a user page', function() {
+  login('rtremaine', 'rt');
   visit('/users').then(function() {
-    click('a:contains("Bugs Bunny")').then(function() {
-      equal(find('h4').text(), 'Bugs Bunny');
+    click('a:contains("Ryan Tremaine")').then(function() {
+      equal(find('h4').text(), 'Ryan Tremaine');
     });
   });
 });
 
 test('Should be able visit a user page', function() {
   visit('/users/1').then(function() {
-    equal(find('h4').text(), 'Bugs Bunny');
+    equal(find('h4').text(), 'Ryan Tremaine');
   });
 });
+
+function login(username, password) {
+  visit('/sessions/new').then(function() {
+    fillIn('input.username', 'rtremaine').then(function() {
+      fillIn('.password', 'rt').then(function() {
+        click("button.login");
+      });
+    });
+  });
+}

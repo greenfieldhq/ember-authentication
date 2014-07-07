@@ -3,18 +3,18 @@
 <form {{action "loginUser" on="submit"}} role="form">
   <div class="form-group">
     <label>Username or Email</label>
-    {{input type="text" value=username_or_email placeholder="Username or Email Address" class="form-control"}}
+    {{input type="text" value=username_or_email placeholder="Username or Email Address" class="username form-control"}}
   </div>
 
   <div class="form-group">
     <label>Password</label>
-    {{input type="password" value=password placeholder="Password" class="form-control"}}
+    {{input type="password" value=password placeholder="Password" class="password form-control"}}
   </div>
 
   <div class="form-group">
-    {{input type="checkbox" checked=remember_me}}
+    {{input type="checkbox" checked=remember_me class="remember-me"}}
     <label>Remember Me?</label>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="login btn btn-primary">Submit</button>
 </form>
