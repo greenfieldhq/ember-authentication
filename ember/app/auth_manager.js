@@ -24,12 +24,12 @@ export default Ember.Object.extend({
   // Authenticate the user. Once they are authenticated, set the access token to be submitted with all
   // future AJAX requests to the server.
   authenticate: function(accessToken, userId, rememberMe) {
-    var klass = this;
+    var self = this;
     Ember.run(function() {
       Ember.$.ajaxSetup({
         headers: { 'Authorization': 'Bearer ' + accessToken }
       });
-      var $this = klass;
+      var $this = self;
       $this.get('store').find('user', userId).then(function(user) {
         $this.set('apiKey', ApiKey.create({
           accessToken: accessToken,
