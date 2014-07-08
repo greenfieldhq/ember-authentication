@@ -22,6 +22,7 @@ You can probably get away with using slightly different versions but this is wha
 ### Build Steps
 1. run `git clone git@github.com:greenfieldhq/ember-authentication.git`
 1. run `npm install -g ember-cli`
+1. cd into `/ember-authentication`
 1. cd into `/ember` and run `bower install`
 1. cd into `/rails` and run `bundle install`
 1. while in `/rails`, run `rake db:setup`
