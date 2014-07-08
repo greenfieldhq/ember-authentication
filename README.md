@@ -20,13 +20,13 @@ You can probably get away with using slightly different versions but this is wha
 
 
 ### Build Steps
-1. run "git clone git@github.com:greenfieldhq/ember-authentication.git"
-1. run "npm install -g ember-cli"
-1. cd into /ember and run "bower install"
-1. cd into /rails and run "bundle install"
-1. cd into /rails and run "rake db:setup"
-1. inside /ember run "ember server --proxy http://localhost:3000"
-1. inside /rails run "rails s"
+1. run `git clone git@github.com:greenfieldhq/ember-authentication.git`
+1. run `npm install -g ember-cli`
+1. cd into `/ember` and run `bower install`
+1. cd into `/rails` and run `bundle install`
+1. while in `/rails`, run `rake db:setup`
+1. inside `/ember` run `ember server --proxy http://localhost:3000`
+1. inside `/rails` run `rails s`
 
 Assuming it's all running you should be able to point your browser at http://localhost:4200 and see the sample application. The "Top Secret" link requires authentication, click it and you'll be prompted for your credentials. 
 
