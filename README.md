@@ -6,7 +6,7 @@ A basic example implementation of how we are currently handling authentication i
 
 Most of the Ember authentication code was taken from Eric Berry's great [blog post](http://coderberry.me/blog/2013/07/08/authentication-with-emberjs-part-1/). We had to make a bunch of changes to get it to work with the Ember 1.5.1 and Ember CLI but the mechanics are basically the same.
 
-If you are just getting started with Ember CLI checkout DockYards's great [blog series](http://reefpoints.dockyard.com/2014/05/07/building-an-ember-app-with-rails-part-1.html).
+If you are just getting started with Ember CLI checkout DockYard's great [blog series](http://reefpoints.dockyard.com/2014/05/07/building-an-ember-app-with-rails-part-1.html).
 
 note: This was last tested against Ember CLI 0.0.37. Ember CLI is under heavy development and in constant flux, we recommend you make sure our example is working against 0.0.37 before upgrading to a newer version of Ember CLI.
 
@@ -20,6 +20,7 @@ You can probably get away with using slightly different versions but this is wha
 
 
 ### Build Steps
+1. run "git clone git@github.com:greenfieldhq/ember-authentication.git"
 1. run "npm install -g ember-cli"
 1. cd into /ember and run "bower install"
 1. cd into /rails and run "bundle install"
