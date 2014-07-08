@@ -30,3 +30,7 @@ You can probably get away with using slightly different versions but this is wha
 Assuming it's all running you should be able to point your browser at http://localhost:4200 and see the sample application. The "Top Secret" link requires authentication, click it and you'll be prompted for your credentials. 
 
 You can look at rails/db/seeds.rb to use one of the test user accounts. Alternatively you can click the "Register" link and create your own.
+
+
+### Tests
+There a few QUnit tests, run them by going to http://localhost:4200/tests
