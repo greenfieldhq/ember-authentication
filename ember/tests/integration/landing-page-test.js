@@ -16,11 +16,3 @@ test('Should show user the landing page', function() {
     equal(find('p#welcome').text(), 'Hello World! Welcome to greenfield!');
   });
 });
-
-test('Should allow navigating back to root from another page', function() {
-  visit('/about').then(function() {
-    click('a:contains("Home")').then(function() {
-      notEqual(find('h3').text(), 'About');
-    });
-  });
-});

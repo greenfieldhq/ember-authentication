@@ -9,19 +9,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">greenfield</a>
+      {{link-to 'greenfield' 'application' classNames='navbar-brand'}}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li>{{link-to 'Home' 'application'}}</li>
         <li>{{link-to 'About' 'about'}}</li>
-        <li>{{link-to 'Users' 'users'}}</li>
         <li>{{link-to 'Top Secret' 'top_secret'}}</li>
 
         {{#if isAuthenticated}}
-          <li><a href="#">{{currentUser.email}}</a></li>
+        <li>{{#link-to 'users.show' currentUser}}{{currentUser.username}}{{/link-to}}</li>
           <li><a href="#" {{action 'logout'}}>Logout</a></li>
         {{else}}
           <li>{{link-to 'Register' 'users.new'}}</li>

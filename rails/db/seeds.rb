@@ -18,12 +18,6 @@ mike = User.create(name: 'Mike Munroe',
                   password: 'mm',
                   password_confirmation: 'mm')
 
-ryan.cars << Car.create(make: 'BMW', model: 'M3', year: 2011, color: 'white') 
-ryan.cars << Car.create(make: 'BMW', model: 'M3', year: 2009, color: 'black') 
-ryan.cars << Car.create(make: 'BMW', model: 'M3', year: 2002, color: 'white') 
-ryan.cars << Car.create(make: 'Porsche', model: '911', year: 2007, color: 'blue') 
-ryan.cars << Car.create(make: 'Audi', model: 'S4', year: 2008, color: 'black') 
-
 
 ryan.api_keys << ApiKey.create(access_token: SecureRandom.hex, scope: 'session', expired_at: 4.hours.from_now)
 ryan.api_keys << ApiKey.create(access_token: SecureRandom.hex, scope: 'api', expired_at: 4.hours.from_now)

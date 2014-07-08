@@ -9,11 +9,14 @@ module('Integration - User Page', {
       {
         id: 1,
         name: 'Ryan Tremaine',
-        
+        email: 'ryan@greenfieldhq.com',
+        username: 'rtremaine'
       },
       {
         id: 2,
-        name: 'Mike Munroe'
+        name: 'Mike Munroe',
+        email: 'mike@greenfieldhq.com',
+        username: 'mmunroe'
       }
     ];
 
@@ -43,15 +46,6 @@ module('Integration - User Page', {
   }
 });
 
-test('Should allow navigation to the users page from the landing page', function() {
-  login('rtremaine', 'rt');
-  visit('/').then(function() {
-    click('a:contains("Users")').then(function() {
-      equal(find('h3').text(), 'Users');
-    });
-  });
-});
-
 test('Should list all users', function() {
   login('rtremaine', 'rt');
   visit('/users').then(function() {
@@ -64,14 +58,14 @@ test('Should be able to navigate to a user page', function() {
   login('rtremaine', 'rt');
   visit('/users').then(function() {
     click('a:contains("Ryan Tremaine")').then(function() {
-      equal(find('h4').text(), 'Ryan Tremaine');
+      equal(find('h4').text(), 'Ryan Tremaineemail: ryan@greenfieldhq.comusername: rtremaine');
     });
   });
 });
 
 test('Should be able visit a user page', function() {
   visit('/users/1').then(function() {
-    equal(find('h4').text(), 'Ryan Tremaine');
+    equal(find('h4').text(), 'Ryan Tremaineemail: ryan@greenfieldhq.comusername: rtremaine');
   });
 });
 
